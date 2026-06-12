@@ -1,0 +1,29 @@
+run_name: mnist-quadrature-targeted
+output_root: outputs
+seeds: [0]
+device: auto
+data:
+  name: mnist
+  root: data
+  download: true
+  population_size: 10000
+model:
+  name: mlp
+  hidden_sizes: [256, 256]
+training:
+  epochs: 20
+  batch_size: 128
+  workers: 0
+  checkpoint_fractions: [0, 1]
+  optimizer: {name: sgd, learning_rate: 0.05}
+experiment:
+  gamma: 0.01
+  batch_sizes: [64]
+  microbatches: [4]
+  repetitions: 32
+  gradient_chunk_size: 16
+  oracle_batch_size: 512
+  replacement: true
+  quadrature_rules: [simpson3, gauss3]
+  oracle_rule: gauss16
+  store_parameter_metrics: false

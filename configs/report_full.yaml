@@ -1,0 +1,22 @@
+run_name: parameter-importance-validation
+output_root: reports
+seed: 0
+bootstrap_repetitions: 10000
+inputs:
+  simulation:
+    - outputs/simulate/full-c68d172e9de7/results.parquet
+  checkpoint:
+    - outputs/checkpoint/mnist-main-seed*/results.parquet
+    - outputs/checkpoint/cifar-relu-representative-seed*/results.parquet
+    - outputs/checkpoint/cifar-smooth-representative-seed*/results.parquet
+  quadrature_checkpoint:
+    - outputs/checkpoint/mnist-quadrature-targeted-*/results.parquet
+  reference:
+    - outputs/reference/mnist-adaptive-reference-*/results.parquet
+  stress_checkpoint:
+    - outputs/checkpoint/stress-no-replacement-seed*/results.parquet
+    - outputs/checkpoint/stress-momentum-seed*/results.parquet
+    - outputs/checkpoint/stress-adamw-seed*/results.parquet
+  continual:
+    - outputs/continual/permuted-main-*/results.parquet
+    - outputs/continual/split-cifar-main-*/results.parquet

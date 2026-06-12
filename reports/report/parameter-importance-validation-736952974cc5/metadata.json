@@ -1,0 +1,81 @@
+{
+  "command": "report",
+  "config_hash": "736952974cc5",
+  "git_commit": "52101e727a89fafcce428ba4be31596b43684dd5",
+  "status": "completed",
+  "updated_at": "2026-06-11T14:05:15.222595+00:00",
+  "runtime": {
+    "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:49:16) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "torch": "2.11.0+cu128",
+    "cuda_available": true,
+    "cuda_version": "12.8"
+  },
+  "config": {
+    "run_name": "parameter-importance-validation",
+    "output_root": "reports",
+    "seed": 0,
+    "bootstrap_repetitions": 10000,
+    "inputs": {
+      "simulation": [
+        "outputs/simulate/full-c68d172e9de7/results.parquet"
+      ],
+      "checkpoint": [
+        "outputs/checkpoint/mnist-main-seed*/results.parquet",
+        "outputs/checkpoint/cifar-relu-representative-seed*/results.parquet",
+        "outputs/checkpoint/cifar-smooth-representative-seed*/results.parquet"
+      ],
+      "quadrature_checkpoint": [
+        "outputs/checkpoint/mnist-quadrature-targeted-*/results.parquet"
+      ],
+      "reference": [
+        "outputs/reference/mnist-adaptive-reference-*/results.parquet"
+      ],
+      "stress_checkpoint": [
+        "outputs/checkpoint/stress-no-replacement-seed*/results.parquet",
+        "outputs/checkpoint/stress-momentum-seed*/results.parquet",
+        "outputs/checkpoint/stress-adamw-seed*/results.parquet"
+      ],
+      "continual": [
+        "outputs/continual/permuted-main-*/results.parquet",
+        "outputs/continual/split-cifar-main-*/results.parquet"
+      ]
+    }
+  },
+  "inputs": {
+    "simulation": [
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\simulate\\full-c68d172e9de7\\results.parquet"
+    ],
+    "checkpoint": [
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\cifar-relu-representative-seed0-8670f508c98e\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\cifar-relu-representative-seed1-219a1bb54947\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\cifar-relu-representative-seed2-b9890af938e5\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\cifar-smooth-representative-seed0-807275905475\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\cifar-smooth-representative-seed1-18b47ab2c07b\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\cifar-smooth-representative-seed2-fe3ce7cae07f\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\mnist-main-seed0-f3ae8cdea256\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\mnist-main-seed1-1afcb1f8d7c1\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\mnist-main-seed2-705f946ea887\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\mnist-main-seed3-a786eb5c2c57\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\mnist-main-seed4-bfbe839ac000\\results.parquet"
+    ],
+    "quadrature_checkpoint": [
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\mnist-quadrature-targeted-seed0-734a1647a0ed\\results.parquet"
+    ],
+    "reference": [
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\reference\\mnist-adaptive-reference-3cc98f82dd93\\results.parquet"
+    ],
+    "stress_checkpoint": [
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\stress-adamw-seed0-611de069820f\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\stress-momentum-seed0-fb20395edc13\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\checkpoint\\stress-no-replacement-seed0-07ee944eacb9\\results.parquet"
+    ],
+    "continual": [
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\continual\\permuted-main-a8b1606f9475\\results.parquet",
+      "F:\\Personal\\Code\\parameter-importance\\outputs\\continual\\split-cifar-main-4f7dae0b1d73\\results.parquet"
+    ]
+  },
+  "decision_rows": 518,
+  "checkpoint_summary_rows": 244,
+  "charts": 7
+}

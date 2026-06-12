@@ -1,0 +1,27 @@
+run_name: cifar10-relu-maxpool
+output_root: outputs
+seeds: [0, 1, 2, 3, 4]
+device: auto
+data:
+  name: cifar10
+  root: data
+  download: true
+  population_size: 10000
+  augmentation: false
+model: {name: simple_cnn}
+training:
+  epochs: 40
+  batch_size: 128
+  workers: 4
+  checkpoint_fractions: [0, 0.25, 0.5, 1]
+  optimizer: {name: sgd, learning_rate: 0.05}
+experiment:
+  gamma: 0.005
+  batch_sizes: [16, 64, 256]
+  microbatches: [2, 4, 8]
+  repetitions: 512
+  gradient_chunk_size: 8
+  oracle_batch_size: 256
+  replacement: true
+  quadrature_rules: [single, simpson3, gauss3]
+  oracle_rule: gauss16

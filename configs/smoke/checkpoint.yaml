@@ -1,0 +1,31 @@
+run_name: smoke
+output_root: outputs
+seed: 0
+device: cpu
+data:
+  name: fake_mnist
+  fake_size: 64
+  population_size: 32
+model:
+  name: mlp
+  hidden_sizes: [8]
+training:
+  epochs: 1
+  batch_size: 16
+  workers: 0
+  checkpoint_fractions: [0, 1]
+  optimizer:
+    name: sgd
+    learning_rate: 0.05
+experiment:
+  gamma: 0.01
+  batch_sizes: [8]
+  microbatches: [2, 4]
+  repetitions: 1
+  gradient_chunk_size: 4
+  oracle_batch_size: 16
+  replacement: true
+  quadrature_rules: [single]
+  oracle_rule: single
+  store_parameter_metrics: false
+

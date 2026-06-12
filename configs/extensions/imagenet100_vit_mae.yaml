@@ -1,0 +1,34 @@
+# Server extension. ViT-Tiny classification is runnable through `checkpoint`.
+# `mae_adapter` documents the legacy MAE integration target; masked reconstruction
+# needs the external model/data modules referenced by legacy/main_mae_subtrainset.py.
+run_name: imagenet100-vit-tiny-mae-extension
+output_root: outputs
+device: cuda
+data:
+  name: imagefolder
+  root: /datasets/imagenet100
+  population_size: 10000
+model:
+  name: vit_tiny
+  image_size: 224
+  patch_size: 16
+  embed_dim: 192
+  depth: 12
+  heads: 3
+objective: {name: classification}
+mae_adapter:
+  status: requires_external_legacy_modules
+  entrypoint: legacy/main_mae_subtrainset.py
+  mask_ratio: 0.75
+distributed:
+  launcher: torchrun
+  gpus: 8
+experiment:
+  gamma: 0.0001
+  batch_sizes: [256, 1024]
+  microbatches: [2, 4, 8]
+  repetitions: 128
+  gradient_chunk_size: 1
+  oracle_batch_size: 128
+  quadrature_rules: [single, gauss3]
+  oracle_rule: gauss16

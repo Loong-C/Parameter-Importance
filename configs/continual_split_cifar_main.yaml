@@ -1,0 +1,28 @@
+run_name: split-cifar-main
+output_root: outputs
+device: auto
+scenario: split_cifar100
+task_count: 10
+classes_per_task: 10
+data:
+  name: cifar100
+  root: data
+  download: true
+  train_size: 10000
+  test_size: 5000
+training:
+  epochs_per_task: 1
+  batch_size: 128
+  workers: 0
+  evaluation_batch_size: 256
+  learning_rate: 0.03
+  optimizer: sgd
+  momentum: 0
+  weight_decay: 0
+  si_damping: 0.1
+  gradient_chunk_size: 8
+methods: [fine_tuning, naive, double, single_micro_m4]
+selection:
+  tuning_seeds: [100]
+  final_seeds: [0]
+  strengths: [1]

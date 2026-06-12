@@ -1,0 +1,23 @@
+run_name: mnist-momentum-stress
+output_root: outputs
+seeds: [0, 1, 2, 3, 4]
+device: auto
+data: {name: mnist, root: data, download: true, population_size: 10000}
+model: {name: mlp, hidden_sizes: [256, 256]}
+training:
+  epochs: 20
+  batch_size: 128
+  workers: 4
+  checkpoint_fractions: [0, 0.25, 0.5, 1]
+  optimizer: {name: sgd, learning_rate: 0.05, momentum: 0.9}
+experiment:
+  gamma: 0.01
+  batch_sizes: [16, 64, 256]
+  microbatches: [2, 4, 8]
+  repetitions: 256
+  gradient_chunk_size: 16
+  oracle_batch_size: 512
+  replacement: true
+  quadrature_rules: [single]
+  oracle_rule: single
+

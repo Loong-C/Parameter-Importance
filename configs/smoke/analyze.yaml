@@ -1,0 +1,8 @@
+run_name: smoke
+output_root: outputs
+seed: 0
+bootstrap_repetitions: 200
+inputs:
+  - outputs/simulate/smoke-5e021461b56b
+  - outputs/checkpoint/smoke-da3e970ea161
+  - outputs/continual/smoke-9fb5e5a8b621

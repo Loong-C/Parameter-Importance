@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parameter-importance-validation"
+version = "0.1.0"
+description = "Reproducible experiments for stochastic overestimation in path-integral parameter importance."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "pyarrow>=15",
+  "PyYAML>=6",
+  "scipy>=1.12",
+  "seaborn>=0.13",
+  "statsmodels>=0.14",
+  "torch>=2.2",
+  "torchvision>=0.17",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+param-importance = "param_importance.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --basetemp=.pytest-tmp"
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,9 @@
+run_name: full
+output_root: outputs
+seed: 0
+bootstrap_repetitions: 10000
+inputs:
+  - outputs/simulate
+  - outputs/checkpoint
+  - outputs/continual
+

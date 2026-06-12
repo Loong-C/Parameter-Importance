@@ -1,0 +1,29 @@
+run_name: smoke
+output_root: outputs
+seed: 0
+device: cpu
+scenario: permuted_mnist
+task_count: 2
+data:
+  name: fake_mnist
+  fake_train_size: 64
+  fake_test_size: 32
+model:
+  hidden_sizes: [8]
+training:
+  epochs_per_task: 1
+  batch_size: 16
+  workers: 0
+  evaluation_batch_size: 32
+  learning_rate: 0.02
+  optimizer: sgd
+  momentum: 0
+  weight_decay: 0
+  si_damping: 0.1
+  microbatches: 2
+methods: [fine_tuning, naive, single_micro_m2]
+selection:
+  tuning_seeds: [100]
+  final_seeds: [0]
+  strengths: [0.1]
+

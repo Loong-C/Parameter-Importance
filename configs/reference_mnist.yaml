@@ -1,0 +1,18 @@
+run_name: mnist-adaptive-reference
+output_root: outputs
+device: auto
+reference:
+  source_runs:
+    - outputs/checkpoint/mnist-main-seed0-*
+    - outputs/checkpoint/mnist-main-seed1-*
+  checkpoints: [epoch-000, epoch-020]
+  quadrature: gk21
+  epsabs: 1.0e-8
+  epsrel: 5.0e-2
+  norm: "2"
+  limit: 32
+  cache_size: 100000000
+  evaluation_cache_entries: 96
+  composite_intervals: [8, 16, 32, 64]
+  crosscheck_tolerance: 5.0e-3
+  conservation_tolerance: 1.0e-3

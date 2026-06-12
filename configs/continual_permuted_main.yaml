@@ -1,0 +1,30 @@
+run_name: permuted-main
+output_root: outputs
+device: auto
+scenario: permuted_mnist
+task_count: 5
+data:
+  name: mnist
+  root: data
+  download: true
+  train_size: 5000
+  test_size: 2000
+model:
+  hidden_sizes: [128, 128]
+training:
+  epochs_per_task: 3
+  batch_size: 128
+  workers: 0
+  evaluation_batch_size: 512
+  learning_rate: 0.03
+  optimizer: sgd
+  momentum: 0
+  weight_decay: 0
+  si_damping: 0.1
+  gradient_chunk_size: 16
+methods:
+  [fine_tuning, ewc, naive, double, single_micro_m4, single_micro_m8]
+selection:
+  tuning_seeds: [100]
+  final_seeds: [0, 1, 2]
+  strengths: [0.1, 10]
